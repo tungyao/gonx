@@ -13,16 +13,23 @@ type Fields map[string]string
 // threating this as a map, because inner representation is in design.
 type Entry struct {
 	fields Fields
+	Line   string
 }
 
 // NewEmptyEntry creates an empty Entry to be filled later
 func NewEmptyEntry() *Entry {
-	return &Entry{make(Fields)}
+	return &Entry{
+		make(Fields),
+		"",
+	}
 }
 
 // NewEntry creates an Entry with fiven fields
 func NewEntry(fields Fields) *Entry {
-	return &Entry{fields}
+	return &Entry{
+		fields,
+		"",
+	}
 }
 
 // Fields returns all fields of an entry
@@ -69,7 +76,6 @@ func (entry *Entry) IntField(name string) (value int, err error) {
 	}
 	return
 }
-
 
 // SetField sets the value of a field
 func (entry *Entry) SetField(name string, value string) {

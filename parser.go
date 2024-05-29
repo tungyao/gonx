@@ -54,6 +54,7 @@ func (parser *Parser) ParseString(line string) (entry *Entry, err error) {
 
 	// Iterate over subexp foung and fill the map record
 	entry = NewEmptyEntry()
+	entry.Line = line
 	for i, name := range re.SubexpNames() {
 		if i == 0 {
 			continue

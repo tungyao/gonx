@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/satyrius/gonx"
+	"github.com/tungyao/gonx"
 )
 
 func BenchmarkBufioReadEntry(b *testing.B) {
