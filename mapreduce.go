@@ -51,8 +51,9 @@ func MapReduce(file io.Reader, parser StringParser, reducer Reducer) chan *Entry
 					return
 				}
 				entry, err := parser.ParseString(line)
-				entry.Line = line
-				if err == nil {
+				
+				if err == nil && entry != nil{
+					entry.Line = line
 					// Write result Entry to the output channel. This will
 					// block goroutine runtime until channel is free to
 					// accept new item.
